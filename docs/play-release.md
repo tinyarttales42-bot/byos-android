@@ -16,7 +16,8 @@ Status: **not published; owner account registration required**. Updated 27 Octob
 - Release minification, lint, unsigned AAB build and CI artifact.
 - Optional upload signing supplied only through environment variables.
 - Offline privacy policy accessible from the library toolbar, plus a public-page source in `docs/privacy/index.html`.
-- Draft English store copy in `store/en-US/` and existing app screenshots in `docs/screenshots/`.
+- Draft English store copy in `store/en-US/`, 512×512 icon and 1024×500 feature graphic in `store/graphics/`, and existing app screenshots in `docs/screenshots/`. SVG sources and a Sharp rendering script accompany the graphics.
+- CI checks 64-bit ELF LOAD-segment alignment in the release bundle. This is separate from generated APK ZIP alignment and runtime testing.
 
 ## Owner steps and external blockers
 
@@ -25,7 +26,7 @@ Status: **not published; owner account registration required**. Updated 27 Octob
 3. Provide an authenticated Play Console session after verification. Account-specific app creation, declarations and upload cannot be performed before this exists.
 4. Establish owner-controlled upload-key custody and backup, and enroll in Play App Signing. No production key has been generated or supplied. The CI AAB is unsigned and **not upload-ready**.
 5. Publish the privacy page at a stable public HTTPS URL and verify it before entering it in Console. The checked-in HTML is a source file, not a live policy URL.
-6. Complete store assets (512×512 icon, 1024×500 feature graphic and current phone screenshots), content rating, target audience, app access, ads, data safety and foreground-service declarations. Confirm declarations against the final signed build; do not treat the draft below as submitted answers.
+6. Review the prepared store graphics and refresh phone screenshots from the final signed build. Complete content rating, target audience, app access, ads, data safety and foreground-service declarations. Confirm declarations against the final signed build; do not treat the draft below as submitted answers.
 7. Complete release-device regression, accessibility/large-text review, permission revocation, interrupted playback, Bluetooth/headset and native 16 KB page-size validation. Review dependencies and release notes before signing the exact upload build.
 8. Merge through reviewed, passing PRs. Preserve the Sprint 0 rollback point `a730802faff03c612eb1892fbaca5cc5f30edf8f`. Tag the approved release commit using semantic versioning and record the signed bundle checksum/certificate. No release tag has been created.
 

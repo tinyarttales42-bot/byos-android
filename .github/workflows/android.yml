@@ -24,6 +24,7 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - run: chmod +x gradlew
       - run: ./gradlew --no-daemon testDebugUnitTest lintDebug lintRelease assembleDebug assembleDebugAndroidTest bundleRelease
+      - run: python3 scripts/check-native-alignment.py app/build/outputs/bundle/release/app-release.aab
       - name: Upload unsigned release bundle for review
         uses: actions/upload-artifact@v7
         with:
