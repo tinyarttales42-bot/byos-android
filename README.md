@@ -6,7 +6,7 @@ An offline-first Android music player built with Kotlin, Jetpack Compose, Media3
 
 ## Getting started
 
-Requirements: JDK 17, Android SDK Platform 35, Build Tools 34.0.0, and an Android device/emulator running API 26+. Android Studio is optional. The checked-in Gradle 8.9 wrapper downloads dependencies on the first build; the installed app needs no internet access.
+Requirements: JDK 17, Android SDK Platform 36, Build Tools 35.0.0, and an Android device/emulator running API 26+. Android Studio is optional. The checked-in Gradle 8.13 wrapper downloads dependencies on the first build; the installed app needs no internet access.
 
 1. Clone this repository and check out the sprint branch.
 2. Set `ANDROID_HOME` to the SDK directory, or create an untracked `local.properties` containing `sdk.dir=/path/to/Android/Sdk` (Windows supports forward slashes).
@@ -39,7 +39,8 @@ Install using `adb install -r app/build/outputs/apk/debug/app-debug.apk`. Choose
 - [Sprint backlog](docs/sprint-backlog.md)
 - [Verification report](docs/verification.md)
 - [Release and rollback checklist](docs/release-checklist.md)
+- [Play release preparation and blockers](docs/play-release.md)
 
-CI builds each sprint push and PR, then runs emulator tests on APIs 26 and 35. Download `byos-debug-<commit>` from the Actions run for the APK. Debug signing is generated locally/by the runner and is never committed. CI artifacts expire after 14 days.
+CI builds PRs and pushes to main, then runs emulator tests on APIs 26 and 36. Download `byos-debug-<commit>` from the Actions run for the APK. CI also checks the minified release build and provides `byos-release-UNSIGNED-<commit>` for review; this bundle cannot be uploaded to Play until signed. Debug signing is generated locally/by the runner and is never committed. CI artifacts expire after 14 days.
 
 All feature work uses sprint branches and PRs. Do not merge failing checks. Production publication and signing require explicit owner approval. Release tags use semantic versions (`v0.1.0` for the first approved foundation release); no release tag is created merely by opening a sprint PR.

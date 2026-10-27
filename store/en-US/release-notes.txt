@@ -1,0 +1,2 @@
+Initial test release of BYOS.
+Play local audio, create playlists, organize songs with tags and ratings, and listen with background media controls.
