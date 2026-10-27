@@ -46,6 +46,7 @@ import kotlinx.coroutines.delay
     var playlistId by rememberSaveable { mutableStateOf<Long?>(null) }
     var selectedId by rememberSaveable { mutableStateOf<String?>(null) }
     var nowPlaying by rememberSaveable { mutableStateOf(false) }
+    var showPrivacy by rememberSaveable { mutableStateOf(false) }
     var optionsId by remember { mutableStateOf<String?>(null) }
     var nameDialog by remember { mutableStateOf<String?>(null) }
     var renameId by remember { mutableStateOf<Long?>(null) }
@@ -70,6 +71,8 @@ import kotlinx.coroutines.delay
     BackHandler(nowPlaying || playlistId != null || tagFilter != null || tab != "Library") {
         when { nowPlaying -> nowPlaying = false; playlistId != null -> playlistId = null; tagFilter != null -> tagFilter = null; else -> tab = "Library" }
     }
+
+    if (showPrivacy) PrivacyDialog(onDismiss = { showPrivacy = false })
 
     Scaffold(containerColor = Ink, snackbarHost = { SnackbarHost(snack) }, bottomBar = {
         if (!nowPlaying) Column {
@@ -106,6 +109,7 @@ import kotlinx.coroutines.delay
                             Text("B Y O S", color = Lavender, fontSize = 13.sp, fontWeight = FontWeight.Bold, letterSpacing = 2.sp)
                             Text("Bring your own song.", color = Muted, style = MaterialTheme.typography.bodySmall)
                         }
+                        IconButton(onClick = { showPrivacy = true }) { Icon(Icons.Rounded.PrivacyTip, "Privacy policy", tint = Lavender) }
                         IconButton(onClick = onScan, enabled = !state.scanning) { Icon(Icons.Rounded.Refresh, "Scan device audio", tint = Lavender) }
                     }
                 }

@@ -1,0 +1,19 @@
+Bring your own song. Keep your music personal.
+
+BYOS plays audio files already stored on your Android device. Browse your library in a dark violet interface and listen without an internet connection.
+
+MAKE IT YOURS
+Create and rename playlists, add or remove songs, organize tracks with custom tags, and rate songs from one to five stars.
+
+FIND YOUR NEXT TRACK
+Search titles, artists, albums and tags. Sort your library by title, artist or rating, filter by tag, or view your highest-rated songs.
+
+KEEP LISTENING
+Play music in the background with media notification controls. Use shuffle, repeat and seeking to listen your way.
+
+LOCAL BY DESIGN
+Your music and library data stay on your device. BYOS has no account, advertisements or analytics SDK. Audio permission is used to find and play files indexed by Android's media library.
+
+BYOS does not stream, sell or download music. Bring your own audio files. The optional sample library contains fictional song information for exploring the interface, with no playable audio.
+
+Support: tinyarttales42@gmail.com

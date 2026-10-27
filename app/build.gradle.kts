@@ -7,11 +7,11 @@ plugins {
 
 android {
     namespace = "app.byos.android"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         applicationId = "app.byos.android"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "0.1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -22,6 +22,20 @@ android {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
+    }
+    // Signing material is supplied by the owner's local environment, never source control.
+    val uploadStore = providers.environmentVariable("BYOS_UPLOAD_STORE_FILE").orNull
+    if (!uploadStore.isNullOrBlank()) {
+        val uploadSigning = signingConfigs.create("upload") {
+            storeFile = file(uploadStore)
+            storePassword = providers.environmentVariable("BYOS_UPLOAD_STORE_PASSWORD").orNull
+                ?: error("BYOS_UPLOAD_STORE_PASSWORD is required")
+            keyAlias = providers.environmentVariable("BYOS_UPLOAD_KEY_ALIAS").orNull
+                ?: error("BYOS_UPLOAD_KEY_ALIAS is required")
+            keyPassword = providers.environmentVariable("BYOS_UPLOAD_KEY_PASSWORD").orNull
+                ?: error("BYOS_UPLOAD_KEY_PASSWORD is required")
+        }
+        buildTypes.getByName("release").signingConfig = uploadSigning
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
