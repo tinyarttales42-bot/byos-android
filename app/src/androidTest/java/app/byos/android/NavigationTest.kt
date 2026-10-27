@@ -13,7 +13,7 @@ class NavigationTest {
     @Test fun sampleSearchAndPlayerAreAccessible() {
         compose.onNodeWithText("Explore sample library").performScrollTo().performClick()
         compose.onNodeWithText("Find a song, artist or tag").performScrollTo().performTextInput("Afterglow")
-        compose.onNodeWithText("Afterglow").performScrollTo().performClick()
+        compose.onNode(hasText("Afterglow") and !hasSetTextAction()).performScrollTo().performClick()
         compose.onNodeWithText("NOW PLAYING").assertIsDisplayed()
         compose.onNodeWithContentDescription("Rate 5 stars").assertIsDisplayed()
         compose.onNodeWithContentDescription("Play").assertIsNotEnabled()
