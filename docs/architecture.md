@@ -29,7 +29,7 @@ API 33+ uses `READ_MEDIA_AUDIO`; API 26–32 uses `READ_EXTERNAL_STORAGE` with m
 
 Media3 owns playback in a `MediaSessionService`, separate from activity lifetime. Its media notification is managed by Media3; the service declares foreground-service permissions and `mediaPlayback` type. Player handles audio focus and becoming-noisy events. Session activity returns to BYOS. Controller listeners synchronize actual playback status; UI does not simulate audio. Player/controller/session resources are released by their owners.
 
-No network permission or audio uploads. Automatic backup is disabled until a user-controlled metadata backup policy is designed.
+No `INTERNET` permission or audio uploads. Media3 contributes `ACCESS_NETWORK_STATE` in the merged manifest; it does not permit network connections. Automatic backup is disabled until a user-controlled metadata backup policy is designed.
 
 ## Toolchain decision
 
