@@ -10,7 +10,7 @@
 - [x] Unit, Room instrumentation and Compose navigation tests.
 - [x] CI build/lint/tests and APK/report uploads.
 - [x] Architecture, design inventory, backlog and release checklist.
-- [ ] Complete verification and attach results/screenshots to Sprint 0 PR (actual status in verification report).
+- [x] Generate APK, run local checks, and attach results/screenshots to Sprint 0 PR; current remote status is in PR Checks.
 
 ## Sprint 1 — priority order
 

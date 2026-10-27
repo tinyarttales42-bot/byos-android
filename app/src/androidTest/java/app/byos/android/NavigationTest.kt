@@ -18,7 +18,7 @@ class NavigationTest {
         compose.onNodeWithContentDescription("Rate 5 stars").assertIsDisplayed()
         compose.onNodeWithContentDescription("Play").assertIsNotEnabled()
         compose.onNodeWithContentDescription("Close now playing").performClick()
-        compose.onNodeWithText("The collection").assertExists()
+        compose.onNode(hasText("Afterglow") and hasSetTextAction()).assertExists()
     }
     @Test fun navigateToPlaylistAndTagEmptyStates() {
         compose.onNodeWithText("Playlists").performClick()

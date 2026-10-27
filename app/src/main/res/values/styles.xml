@@ -1,5 +1,5 @@
 <resources>
-    <style name="Theme.Byos" parent="android:style/Theme.Material.NoActionBar">
+    <style name="Theme.Byos.Base" parent="android:style/Theme.Material.NoActionBar">
         <item name="android:fontFamily">sans</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">#10101B</item>
@@ -7,4 +7,5 @@
         <item name="android:windowActionModeOverlay">true</item>
         <item name="android:windowBackground">#10101B</item>
     </style>
+    <style name="Theme.Byos" parent="Theme.Byos.Base" />
 </resources>
